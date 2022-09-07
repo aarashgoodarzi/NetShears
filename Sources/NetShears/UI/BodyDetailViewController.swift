@@ -37,9 +37,10 @@ final class BodyDetailViewController: UIViewController, ShowLoaderProtocol {
         textView.font = UIFont(name: "Courier", size: 14)
         textView.dataDetectorTypes = UIDataDetectorTypes.link
 
+        let openFormatter = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(openFormatter(_:)))
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareContent(_:)))
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearch))
-        navigationItem.rightBarButtonItems = [searchButton, shareButton]
+        navigationItem.rightBarButtonItems = [searchButton, shareButton, openFormatter]
 
         buttonPrevious.isEnabled = false
         buttonNext.isEnabled = false
@@ -146,6 +147,10 @@ final class BodyDetailViewController: UIViewController, ShowLoaderProtocol {
 
     @objc func showSearch() {
         searchController?.isActive = true
+    }
+
+    @objc func openFormatter(_ sender: UIBarButtonItem){
+
     }
 
     // MARK: - Keyboard
